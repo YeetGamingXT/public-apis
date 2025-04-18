@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glasbena Teorija - Kviz</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #efd87c;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #ff6600;
+
+        }
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .game-card {
+            background: #f6b026;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .game-card:hover {
+            transform: scale(1.1);
+        }
+
+        header {
+            background-image: url('sheet.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat; 
+            height: 300px;
+            padding: 20px;
+        }
+
+        .footer {
+            background: #ff6600;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        #question-card { 
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            display: inline-block; 
+        }
+
+        button { 
+            margin: 10px; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+        }
+
+        .pravilen {
+            background-color: #c8f7c5; /* zelena */
+        }
+
+        .napačen {
+            background-color: #f7c5c5; /* rdeča */
+        }
+
+        .odgovor {
+            display: block;
+            padding: 5px;
+            margin: 4px 0;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const labels = document.querySelectorAll('.odgovor');
+
+        labels.forEach(label => {
+        label.classList.remove('pravilen', 'napačen'); // reset barv
+        const checkbox = label.querySelector('input');
+        const vrednost = checkbox.value;
+        const izbran = checkbox.checked;
+
+        if (izbran && pravilniOdgovori.has(vrednost)) {
+          label.classList.add('pravilen');
+        } else if (izbran && !pravilniOdgovori.has(vrednost)) {
+          label.classList.add('napačen');
+        }
+      });
+    });
+  </script>
+    </script>
+</head>
+<body>
+    <header><img src="logo.png" height="200" width="300"><br>
+        <br>Ta spletna stran je namenjena našim najmlajšim, da lahko raziskujejo svet glasbe in se pri tem zabavajo!
+    </header>
+    <h1>🎻 Seznani se z zgodovino glasbe in spozna pomembne skladatelje!</h1>
+    <p>Izberi svojo glasbeno igro in se zabavaj ob učenju glasbene teorije!</p>
+    
+    <form id="quiz-form">
+        <label class="odgovor"><input type="checkbox" name="odgovor" value="kit"> test 1</label>
+        <label class="odgovor"><input type="checkbox" name="odgovor" value="netopir"> test 2</label>
+        <label class="odgovor"><input type="checkbox" name="odgovor" value="pingvin"> test 3</label>
+        <label class="odgovor"><input type="checkbox" name="odgovor" value="krokodil"> test 4</label>
+        <br>
+        <button type="submit">Preveri</button>
+    </form>
+    <br>
+    <button onclick="fetchQuestion()">Naslednje vprašanje</button>
+    <button onclick="window.location.href = '/synthy.html'">Nazaj na glavno stran</button>
+
+    <footer class="footer">
+        <p>Kontakt: glasbenapustolovscina@email.com | Inštruktorji: +386 41 123 456</p>
+        <p>© 2025 Glasbena Pustolovščina. Vse pravice pridržane.</p>
+    </footer>
+</body>
+</html>
+
+
+  
+  <script>
+    document.getElementById('quiz-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      const checkboxes = document.querySelectorAll('input[name="answer"]:checked');
+      const izbraniOdgovori = Array.from(checkboxes).map(cb => cb.value);
+  
+      fetch('/preveri-odgovore', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ odgovori: izbraniOdgovori })
+      })
+      .then(res => res.json())
+      .then(data => alert(data.rezultat));
+    });
+  </script>
+  

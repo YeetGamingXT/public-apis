@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthy</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #efd87c;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #ff6600;
+        }
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .game-card {
+            background: #f6b026;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .game-card:hover {
+            transform: scale(1.1);
+        }
+
+        header {
+            background-image: url('sheet.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat; 
+            height: 300px;
+            padding: 20px;
+        }
+
+        .footer {
+            background: #ff6600;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header><img src="logo.png" height="200" width="300"><br>
+        <br>Ta spletna stran je namenjena našim najmlajšim, da lahko raziskujejo svet glasbe in se pri tem zabavajo!
+    </header>
+    <h1>🎶 Glasbena Pustolovščina 🎶</h1>
+    <p>Izberi svojo glasbeno igro in se zabavaj ob učenju glasbene teorije!</p>
+    <div class="game-container">
+        <div class="game-card" onclick="location.href='Prepoznaj-note.html'">
+            <h2>🎵 Prepoznaj Note</h2>
+            <p>Povleci in spusti note na pravo mesto.</p>
+        </div>
+        <div class="game-card" onclick="location.href='ritmični-izziv.html'">
+            <h2>🥁 Ritem Izziv</h2>
+            <p>Prepoznaj ritmične vzorce in jih pravilno ponovi.</p>
+        </div>
+        <div class="game-card" onclick="location.href='intervali.html'">
+            <h2>🎼 Intervalni Lov</h2>
+            <p>Poslušaj in ugotovi razdaljo med notami.</p>
+        </div>
+        <div class="game-card" onclick="location.href='lestvice.html'">
+            <h2>🔑 Sestavi Lestvico</h2>
+            <p>Postavi note v pravo lestvico in osvoji točke!</p>
+        </div>
+        <div class="game-card" onclick="location.href='akordi.html'">
+            <h2>🎸 Akordi</h2>
+            <p>Sestavi pravilne akorde in jih preizkusi.</p>
+        </div>
+        <div class="game-card" onclick="location.href='glasbene-oznake.html'">
+            <h2>📝 Glasbene Oznake</h2>
+            <p>Poveži oznake z njihovimi pomeni.</p>
+        </div>
+        <div class="game-card" onclick="location.href='tempo-in-dinamika.html'">
+            <h2>⏱️ Tempo in Dinamika</h2>
+            <p>Prepoznaj hitrost in glasnost skladb.</p>
+        </div>
+        <div class="game-card" onclick="location.href='zgodovina.html'">
+            <h2>🎻 Skladatelji</h2>
+            <p>Poveži skladatelje z njihovimi deli.</p>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Kontakt: glasbenapustolovscina@email.com | Inštruktorji: +386 41 123 456</p>
+        <p>© 2025 Glasbena Pustolovščina. Vse pravice pridržane.</p>
+    </footer>
+</body>
+</html>

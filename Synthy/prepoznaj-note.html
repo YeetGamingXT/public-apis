@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthy</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #efd87c;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #ff6600;
+        }
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .game-card {
+            background: #f6b026;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .game-card:hover {
+            transform: scale(1.1);
+            margin: 50px;
+            background-color: white;
+        }
+
+        header {
+            background-image: url('sheet.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat; 
+            height: 300px;
+            padding: 20px;
+        }
+
+        .footer {
+            background: #ff6600;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .notno-crtovje {
+            position: relative;
+            width: 400px;
+            height: 130px;
+            padding-top: 10px;
+            margin: 50px auto;
+            background-color: white;
+            border: 2px solid #ccc;
+            }
+
+        .crtovje-line {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: black;
+            }
+
+        .line1 { top: 20px; }
+        .line2 { top: 40px; }
+        .line3 { top: 60px; }
+        .line4 { top: 80px; }
+        .line5 { top: 100px; }
+
+        .note-zone {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .note-zone:hover::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background-image: url('nota-full.png'); /* ⬅️ TUKAJ vstavi pot do slike */
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .zone-c1:hover::after {
+            background-image: url('nota-pomozna-full.png'); /* ⬅️ Slika z mogočno črto */
+        }
+        
+        .zone-g2 { top: 0px; }
+        .zone-f2 { top: 10px; }
+        .zone-e2 { top: 20px; }
+        .zone-d2 { top: 30px; }
+        .zone-c2 { top: 40px; }
+        .zone-a { top: 50px; }
+        .zone-g { top: 60px; }
+        .zone-f { top: 70px; }
+        .zone-e { top: 80px; }
+        .zone-d { top: 90px; }
+        .zone-c { top: 100px; }
+        
+    </style>
+</head>
+<body>
+    <header><img src="logo.png" height="200" width="300"><br>
+        <br>Ta spletna stran je namenjena našim najmlajšim, da lahko raziskujejo svet glasbe in se pri tem zabavajo!
+    </header>
+    <h1>🎵 Prepoznaj note</h1>
+    <p>preveri svoje znanje o notah tako, da povlečeš ustrezno noto na svoje mesto!</p>
+    <div class="game-container">
+        <div class="notno-crtovje">
+            <div class="crtovje-line line1"></div>
+            <div class="crtovje-line line2"></div>
+            <div class="crtovje-line line3"></div>
+            <div class="crtovje-line line4"></div>
+            <div class="crtovje-line line5"></div>
+        
+            <!-- Hover območja za prikaz note -->
+            <div class="note-zone zone-c"></div>
+            <div class="note-zone zone-d"></div>
+            <div class="note-zone zone-e"></div>
+            <div class="note-zone zone-f"></div>
+            <div class="note-zone zone-g"></div>
+            <div class="note-zone zone-a"></div>
+            <div class="note-zone zone-h"></div>
+            <div class="note-zone zone-c2"></div>
+            <div class="note-zone zone-d2"></div>
+            <div class="note-zone zone-e2"></div>
+          </div>
+    </div>
+    <footer class="footer">
+        <p>Kontakt: glasbenapustolovscina@email.com | Inštruktorji: +386 41 123 456</p>
+        <p>© 2025 Glasbena Pustolovščina. Vse pravice pridržane.</p>
+    </footer>
+</body>
+</html>
