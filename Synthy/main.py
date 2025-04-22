@@ -29,5 +29,9 @@ def check_answer():
     else:
         return jsonify({"error": "Vprašanje ne obstaja"}), 404
 
+@app.route("/Synthy/prepoznaj-note.html")
+def prepoznaj_note():
+    pass
+
 if __name__ == "__main__":
     app.run(debug=True)

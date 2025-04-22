@@ -37,7 +37,7 @@
         }
 
         header {
-            background-image: url('sheet.jpg');
+            background-image: url('slike/sheet.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat; 
@@ -54,12 +54,13 @@
         .notno-crtovje {
             position: relative;
             width: 400px;
-            height: 130px;
-            padding-top: 10px;
+            height: 250px; /* povečan iz 130px */
+            padding-top: 50px;
             margin: 50px auto;
             background-color: white;
             border: 2px solid #ccc;
-            }
+            overflow: visible; /* omogoči prikaz not, ki segajo izven */
+        }
 
         .crtovje-line {
             position: absolute;
@@ -67,71 +68,121 @@
             width: 100%;
             height: 1px;
             background-color: black;
-            }
+        }
 
-        .line1 { top: 20px; }
-        .line2 { top: 40px; }
-        .line3 { top: 60px; }
-        .line4 { top: 80px; }
-        .line5 { top: 100px; }
+        .crtovje-line-pomozna {
+            position: absolute;
+            left: 42.5%;
+            width: 15%;
+            height: 1px;
+            background-color: black;
+        }
+        
+        .line-4 { top: 20px; }
+        .line-3 { top: 40px; }
+        .line-2 { top: 60px; }
+        .line-1 { top: 80px; }
+        .line1 { top: 100px; }
+        .line2 { top: 120px; }
+        .line3 { top: 140px; }
+        .line4 { top: 160px; }
+        .line5 { top: 180px; }
+        .line6 { top: 200px; }
+        .line7 { top: 220px; }
+        .line8 { top: 240px; }
+        .line9 { top: 260px; }
+        .line10{ top: 280px; }
 
         .note-zone {
             position: absolute;
             left: 0;
             width: 100%;
-            height: 20px;
+            height: 10px; /* mora biti dovolj velika za interakcijo */
             cursor: pointer;
+            overflow: visible;
+            z-index: 10; /* če slučajno kaj prekrije */
         }
 
         .note-zone:hover::after {
             content: '';
             position: absolute;
             left: 50%;
-            top: 0;
+            top: -10px; /* dvignemo za polovico višine, da je sredina note poravnana */
             transform: translateX(-50%);
-            width: 24px;
-            height: 24px;
-            background-image: url('nota-full.png'); /* ⬅️ TUKAJ vstavi pot do slike */
+            width: 35px;
+            height: 20px;
+            background-image: url('slike/celinka.png'); /* Osnovna slika note */
             background-size: contain;
             background-repeat: no-repeat;
-        }
-
-        .zone-c1:hover::after {
-            background-image: url('nota-pomozna-full.png'); /* ⬅️ Slika z mogočno črto */
+            background-position: center;
         }
         
-        .zone-g2 { top: 0px; }
-        .zone-f2 { top: 10px; }
-        .zone-e2 { top: 20px; }
-        .zone-d2 { top: 30px; }
-        .zone-c2 { top: 40px; }
-        .zone-a { top: 50px; }
-        .zone-g { top: 60px; }
-        .zone-f { top: 70px; }
-        .zone-e { top: 80px; }
-        .zone-d { top: 90px; }
-        .zone-c { top: 100px; }
+        .zone-c-mali { top: 270px; }
+        .zone-d-mali { top: 260px; }
+        .zone-e-mali { top: 250px; }
+        .zone-f-mali { top: 240px; }
+        .zone-g-mali { top: 230px; }
+        .zone-a-mali { top: 220px; }
+        .zone-h-mali { top: 210px; }
+        .zone-c   { top: 200px; }
+        .zone-d   { top: 190px; }
+        .zone-e   { top: 180px; } /*prva črta*/
+        .zone-f   { top: 170px; }
+        .zone-g   { top: 160px; } /*druga črta*/
+        .zone-a   { top: 150px; }
+        .zone-h   { top: 140px; } /*tretja črta*/
+        .zone-c2  { top: 130px; }
+        .zone-d2  { top: 120px; } /*četrta črta*/
+        .zone-e2  { top: 110px; }
+        .zone-f2  { top: 100px; } /*peta črta*/
+        .zone-g2  { top: 90px;  }
+        .zone-a2  { top: 80px;  }
+        .zone-h2  { top: 70px;  }
+        .zone-c3  { top: 60px;  }
+        .zone-d3  { top: 50px;  }
+        .zone-e3  { top: 40px;  }
+        .zone-f3  { top: 30px;  }
+        .zone-g3  { top: 20px;  }
+        .zone-a3  { top: 10px;  }
+
+    
         
     </style>
 </head>
 <body>
-    <header><img src="logo.png" height="200" width="300"><br>
+    <header><img src="slike/logo.png" height="200" width="300"><br>
         <br>Ta spletna stran je namenjena našim najmlajšim, da lahko raziskujejo svet glasbe in se pri tem zabavajo!
     </header>
     <h1>🎵 Prepoznaj note</h1>
     <p>preveri svoje znanje o notah tako, da povlečeš ustrezno noto na svoje mesto!</p>
     <div class="game-container">
         <div class="notno-crtovje">
+            <div class="crtovje-line-pomozna line-4"></div>
+            <div class="crtovje-line-pomozna line-3"></div>
+            <div class="crtovje-line-pomozna line-2"></div>
+            <div class="crtovje-line-pomozna line-1"></div>
             <div class="crtovje-line line1"></div>
             <div class="crtovje-line line2"></div>
             <div class="crtovje-line line3"></div>
             <div class="crtovje-line line4"></div>
             <div class="crtovje-line line5"></div>
+            <div class="crtovje-line-pomozna line6"></div>
+            <div class="crtovje-line-pomozna line7"></div>
+            <div class="crtovje-line-pomozna line8"></div>
+            <div class="crtovje-line-pomozna line9"></div>
+
         
             <!-- Hover območja za prikaz note -->
+            <div class="note-zone zone-c-mali"></div>
+            <div class="note-zone zone-d-mali"></div>
+            <div class="note-zone zone-e-mali"></div>
+            <div class="note-zone zone-f-mali"></div>
+            <div class="note-zone zone-g-mali"></div>
+            <div class="note-zone zone-a-mali"></div>
+            <div class="note-zone zone-h-mali"></div>
             <div class="note-zone zone-c"></div>
             <div class="note-zone zone-d"></div>
-            <div class="note-zone zone-e"></div>
+            <div class="note-zone zone-e"></div> <!-- NOVO: C z pomožno črto -->
             <div class="note-zone zone-f"></div>
             <div class="note-zone zone-g"></div>
             <div class="note-zone zone-a"></div>
@@ -139,6 +190,16 @@
             <div class="note-zone zone-c2"></div>
             <div class="note-zone zone-d2"></div>
             <div class="note-zone zone-e2"></div>
+            <div class="note-zone zone-f2"></div>
+            <div class="note-zone zone-g2"></div>
+            <div class="note-zone zone-a2"></div>
+            <div class="note-zone zone-h2"></div>
+            <div class="note-zone zone-c3"></div>
+            <div class="note-zone zone-d3"></div>
+            <div class="note-zone zone-e3"></div>
+            <div class="note-zone zone-f3"></div>
+            <div class="note-zone zone-g3"></div>
+            <div class="note-zone zone-a3"></div>
           </div>
     </div>
     <footer class="footer">
